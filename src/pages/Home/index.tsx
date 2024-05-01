@@ -12,7 +12,7 @@ export function Home() {
     const screenWidth = window.innerWidth;
 
     let slidesToShow = 3;
-    if (screenWidth <= 478) {
+    if (screenWidth <= 425) {
       slidesToShow = 1;
     } else if (screenWidth <= 768) {
       slidesToShow = 2;
@@ -32,13 +32,13 @@ export function Home() {
 
   return (
     <main className="w-full max-w-7xl px-4 mx-auto">
-      <h1 className="text-center my-10 w-full h-40 border-2 border-blue-300">Banner</h1>
+      <h1 className="text-center mb-10 w-full h-40 border-2 border-blue-300">Banner</h1>
       <section className="">
         <h2 className="text-xl font-bold mb-4">Bolo vulcão</h2>
         <Swiper
           modules={[Pagination]}
           slidesPerView={slidesPerView}
-          spaceBetween={50}
+          spaceBetween={10}
           pagination
         >
           <SwiperSlide><Food /></SwiperSlide>
