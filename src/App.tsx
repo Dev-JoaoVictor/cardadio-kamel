@@ -1,11 +1,21 @@
-function App() {
-  return (
-    <>
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
-    </>
-  )
-}
+import { createBrowserRouter } from "react-router-dom";
 
-export default App
+import { Home } from "./pages/Home";
+import { Cart } from "./pages/Cart";
+import { Layout } from "./components/Layout";
+
+export const router = createBrowserRouter([
+  {
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: <Home />
+      },
+      {
+        path: "/cart",
+        element: <Cart />
+      }
+    ]
+  }
+])
