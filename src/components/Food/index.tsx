@@ -3,18 +3,30 @@ import { IoIosArrowForward } from "react-icons/io";
 
 import { Link } from "react-router-dom";
 
-export function Food() {
+interface FoodProps {
+  id: number;
+  title: string;
+  price: number;
+  cover: string;
+}
+
+export function Food({ id, cover, price, title }: FoodProps) {
   return (
     <div className="w-full flex flex-col gap-6">
       <Link to="/cart">
-        <div className="w-full h-[200px] rounded-lg  bg-blue-300"></div>
+        <img src={cover} alt="" />
         <div className="flex items-center justify-center gap-3 mt-6 text-lg">
-          <p className="text-center ">Nome do produto </p>
-          <IoIosArrowForward  />
+          <p className="text-center ">{title}</p>
+          <IoIosArrowForward />
         </div>
       </Link>
       <div className="flex justify-around items-center mb-10">
-        <span className="bg-pink-300 text-lg p-2 rounded-md font-bold">R$15,00</span>
+        <span className="bg-secondary text-lg p-2 rounded-md font-bold text-white">
+          {price.toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL"
+          })}
+        </span>
         <button>
           <BsCartPlus size={32} />
         </button>
