@@ -6,8 +6,6 @@ import { RouterProvider } from 'react-router-dom'
 
 import { register } from 'swiper/element';
 
-import CartProvider from './context/CartContext.tsx'
-
 register();
 
 import 'swiper/css';
@@ -16,8 +14,6 @@ import 'swiper/css/navigation';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <CartProvider>
-      <RouterProvider router={router} />
-    </CartProvider>
+    <RouterProvider router={router} />
   </React.StrictMode>,
 )
