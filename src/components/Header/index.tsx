@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 
-import logo from '../../assets/logo2.png'
+import logo from '../../assets/logo.png'
 
 export function Header() {
   return (

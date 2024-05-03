@@ -10,7 +10,7 @@ interface FoodProps {
   cover: string;
 }
 
-export function Food({ id, cover, price, title }: FoodProps) {
+export function Food({ cover, price, title }: FoodProps) {
   return (
     <div className="w-full flex flex-col gap-6">
       <Link to="/cart">
