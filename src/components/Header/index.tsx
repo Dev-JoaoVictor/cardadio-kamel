@@ -5,7 +5,7 @@ import logo from '../../assets/logo.png'
 
 export function Header() {
   return (
-    <header className="w-full px-2 mb-4 bg-primary shadow-lg">
+    <header className="w-full px-2 bg-primary shadow-lg">
       <nav className="w-full max-w-7xl h-20 flex items-center justify-between px-5 mx-auto">
         <Link to="/" className="w-24">
           <img src={logo} alt="" />
