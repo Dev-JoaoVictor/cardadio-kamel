@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import { CartContext } from "../../context/CartContext";
 import { Link } from "react-router-dom";
+import { IoIosArrowBack } from "react-icons/io";
 
 export function Cart() {
 
@@ -10,6 +11,16 @@ export function Cart() {
 
   return (
     <main className="w-full max-w-7xl px-4 mx-auto">
+
+      {
+        cart.length !== 0 && (
+          <Link to="/" className='flex items-center mt-8'>
+            <IoIosArrowBack className='mt-1' size={20} />
+            <p className='text-xl'>menu</p>
+          </Link>
+        )
+      }
+
       <h1 className="text-2xl font-semibold text-center m-10">Meu pedido</h1>
 
       {cart.length === 0 && (

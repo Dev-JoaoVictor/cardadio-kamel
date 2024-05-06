@@ -10,6 +10,8 @@ import { BsCartPlus } from "react-icons/bs";
 import { IoIosArrowForward } from "react-icons/io";
 import { CartContext } from "../../context/CartContext";
 
+import toast from "react-hot-toast";
+
 
 export interface ProductsProps {
   id: number;
@@ -40,6 +42,7 @@ export function Home() {
 
   function handleAddCart(product: ProductsProps) {
     addItemCart(product)
+    toast.success("Adicionado ao carrinho.")
   }
 
   useEffect(() => {
@@ -75,7 +78,7 @@ export function Home() {
               <SwiperSlide key={product.id}>
                 <section className="flex flex-col gap-4 my-10">
                   <div className="flex justify-center">
-                    <Link to="/details">
+                    <Link to={`/details/${product.id}`}>
                       <img src={product.cover} alt={`imagem do bolo de ${product.title}`} className="w-56" />
                       <div className="flex products-center justify-center gap-3 mt-6 text-lg">
                         <p className="text-center ">{product.title}</p>

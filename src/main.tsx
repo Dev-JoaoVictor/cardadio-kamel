@@ -6,6 +6,7 @@ import { RouterProvider } from 'react-router-dom'
 
 import CartProvider from "./context/CartContext.tsx"
 
+import { Toaster } from 'react-hot-toast'
 import { register } from 'swiper/element';
 
 register();
@@ -17,6 +18,10 @@ import 'swiper/css/navigation';
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <CartProvider>
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+      />
       <RouterProvider router={router} />
     </CartProvider>
   </React.StrictMode>,
