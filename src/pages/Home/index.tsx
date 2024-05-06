@@ -1,12 +1,17 @@
-import { useEffect, useState } from "react";
-import { Food } from "../../components/Food";
+import { useContext, useEffect, useState } from "react";
 
 import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+
 import { api } from "../../services/api";
+import { Link } from "react-router-dom";
+
+import { BsCartPlus } from "react-icons/bs";
+import { IoIosArrowForward } from "react-icons/io";
+import { CartContext } from "../../context/CartContext";
 
 
-interface ProductsProps {
+export interface ProductsProps {
   id: number;
   title: string;
   description: string;
@@ -15,7 +20,7 @@ interface ProductsProps {
 }
 
 export function Home() {
-
+  const { addItemCart } = useContext(CartContext)
   const [slidesPerView, setSlidesPerView] = useState<number>(3);
   const [products, setProducts] = useState<ProductsProps[]>([]);
 
@@ -32,6 +37,10 @@ export function Home() {
     }
     setSlidesPerView(slidesToShow);
   };
+
+  function handleAddCart(product: ProductsProps) {
+    addItemCart(product)
+  }
 
   useEffect(() => {
     updateSlidesPerView();
@@ -62,13 +71,32 @@ export function Home() {
           pagination
         >
           {
-            products.map((item) => (
-              <SwiperSlide key={item.id}>
-                <Food
-                  id={item.id}
-                  cover={item.cover}
-                  title={item.title}
-                  price={item.price} />
+            products.map((product) => (
+              <SwiperSlide key={product.id}>
+                <section className="flex flex-col gap-4 my-10">
+                  <div className="flex justify-center">
+                    <Link to="/details">
+                      <img src={product.cover} alt={`imagem do bolo de ${product.title}`} className="w-56" />
+                      <div className="flex products-center justify-center gap-3 mt-6 text-lg">
+                        <p className="text-center ">{product.title}</p>
+                        <IoIosArrowForward />
+                      </div>
+                    </Link>
+                  </div>
+                  <div className="flex justify-around">
+                    <span className="bg-secondary text-lg p-2 rounded-md font-bold text-white">
+                      {product.price.toLocaleString("pt-BR", {
+                        style: "currency",
+                        currency: "BRL"
+                      })}
+                    </span>
+                    <button
+                      onClick={() => handleAddCart(product)}
+                    >
+                      <BsCartPlus size={32} />
+                    </button>
+                  </div>
+                </section>
               </SwiperSlide>
             ))
           }
