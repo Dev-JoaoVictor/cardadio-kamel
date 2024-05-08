@@ -11,7 +11,7 @@ interface CartContextData {
 
 }
 
-interface CartProps {
+export interface CartProps {
   id: number;
   title: string;
   description: string;

@@ -1,13 +1,24 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 import { FaWhatsapp } from "react-icons/fa";
 import { CartContext } from "../../context/CartContext";
 import { Link } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
+import { formatCart } from "../../utils/formatCart";
+import { generateWhatsAppLink } from "../../utils/generateWhatsAppLink";
 
 export function Cart() {
 
   const { cart, total, addItemCart, removeItemCart } = useContext(CartContext);
+  const [whatsappMessage, setWhatsappMessage] = useState("");
+
+  const handleWhatsAppClick = () => {
+    const message = formatCart(cart, total);
+    setWhatsappMessage(message);
+
+    const whatsappLink = generateWhatsAppLink(whatsappMessage);
+    window.open(whatsappLink, '_blank');
+  };
 
   return (
     <main className="w-full max-w-7xl px-4 mx-auto">
@@ -54,12 +65,12 @@ export function Cart() {
         cart.length !== 0 && (
           <div className="flex justify-between my-10">
             <p className="text-xl text-center font-bold">Total Geral: <br />{total}</p>
-            <a
-            href={`https://wa.me/5511957665838/?text=teste`}
+            <button
+              onClick={handleWhatsAppClick}
               className="bg-green-400 text-lg p-2 rounded-md flex items-center gap-2 active:bg-green-600">
               <FaWhatsapp size={28} />
               Enviar pedido
-            </a>
+            </button>
           </div>
         )
       }

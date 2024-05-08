@@ -51,7 +51,9 @@ export function Home() {
 
   return (
     <main className="w-full max-w-7xl mt-6 px-4 mx-auto">
-      <h1 className="text-center mb-10 w-full h-40 border-2 bg-secondary"></h1>
+      <div className="bg-zinc-300 h-40 rounded-md shadow-xl my-10">
+        Confeitaria Kamel
+      </div>
       <section>
         <h2 className="text-xl font-semibold">Bolo mini vulcão</h2>
         <Swiper
