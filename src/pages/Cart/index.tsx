@@ -15,8 +15,7 @@ export function Cart() {
       {
         cart.length !== 0 && (
           <Link to="/" className='flex items-center mt-8'>
-            <IoIosArrowBack className='mt-1' size={20} />
-            <p className='text-xl'>menu</p>
+            <IoIosArrowBack className='mt-1' size={30} />
           </Link>
         )
       }
@@ -34,15 +33,15 @@ export function Cart() {
       {
         cart.map((product) => (
           <section key={product.id} className="flex flex-col items-center gap-14">
-            <div className="flex flex-col items-center justify-center gap-4 border-b border-zinc-400 pb-8 w-full md:flex-row md:justify-between">
-              <img src={product.cover} alt={`Imagem do bolo de ${product.title}`} className="w-32 h-32 m-6" />
-              <p className="text-xl">{product.title}</p>
-              <div className="flex gap-8 items-center text-white font-bold text-2xl p-4 bg-secondary rounded-md">
+            <div className="flex flex-col items-center justify-center gap-4 border-b border-zinc-400 w-full mb-6 md:flex-row md:justify-between">
+              <img src={product.cover} alt={`Imagem do bolo de ${product.title}`} className="w-44 h-44" />
+              <p className="text-xl font-semibold">{product.title}</p>
+              <div className="flex gap-8 items-center text-white font-bold text-xl p-2 bg-secondary rounded-md">
                 <button onClick={() => removeItemCart(product)}>-</button>
                 <span>{product.amount}</span>
                 <button onClick={() => addItemCart(product)}>+</button>
               </div>
-              <p className="text-xl">Subtotal: {product.total.toLocaleString("pt-BR", {
+              <p className="text-lg">Subtotal: {product.total.toLocaleString("pt-BR", {
                 style: "currency",
                 currency: "BRL"
               })}</p>
@@ -56,6 +55,7 @@ export function Cart() {
           <div className="flex justify-between my-10">
             <p className="text-xl text-center font-bold">Total Geral: <br />{total}</p>
             <a
+            href={`https://wa.me/5511957665838/?text=teste`}
               className="bg-green-400 text-lg p-2 rounded-md flex items-center gap-2 active:bg-green-600">
               <FaWhatsapp size={28} />
               Enviar pedido

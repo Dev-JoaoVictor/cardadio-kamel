@@ -1,5 +1,5 @@
 import toast from 'react-hot-toast';
-import { BsCartPlus } from "react-icons/bs";
+import { IoCartOutline } from "react-icons/io5";
 
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
@@ -35,8 +35,7 @@ export function Details() {
   return (
     <main className="w-full max-w-7xl px-4 mx-auto mb-12 ">
       <Link to="/" className='flex items-center mt-8'>
-        <IoIosArrowBack className='mt-1' size={20} />
-        <p className='text-xl'>menu</p>
+        <IoIosArrowBack className='mt-1' size={30} />
       </Link>
       {product && (
         <section className='my-10 p-4'>
@@ -45,17 +44,18 @@ export function Details() {
             <p className="font-bold text-2xl">{product.title}</p>
             <p className='text-justify'>{product.description}</p>
           </div>
-          <div className="flex justify-around mt-10">
-            <span className="bg-secondary text-lg p-2 rounded-md font-bold text-white">
+          <div className="flex justify-evenly items-center mt-8">
+            <span className="text-xl p-1 rounded-md font-bold">
               {product.price.toLocaleString("pt-BR", {
                 style: "currency",
                 currency: "BRL"
               })}
             </span>
             <button
+              className='p-2 bg-secondary rounded-full'
               onClick={() => handleAddCartItem(product)}
             >
-              <BsCartPlus size={32} />
+              <IoCartOutline className='text-white' size={28}/>
             </button>
           </div>
         </section>

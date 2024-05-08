@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { FaShoppingCart } from "react-icons/fa";
+import { IoCartOutline } from "react-icons/io5";
 
 import logo from '../../assets/logo.png'
 
@@ -17,7 +17,7 @@ export function Header() {
           <img src={logo} alt="logo confeitaria kamel" />
         </Link>
         <Link to="/cart" className="relative">
-          <FaShoppingCart size={30} className="fill-white" />
+          <IoCartOutline size={32} className="text-white" />
           {
             cartAmount > 0 && (
               <span className="absolute -right-4 -top-2 bg-secondary px-2.5 rounded-full h-6 w-6 flex items-center justify-center text-white text-sm font-bold">{cartAmount}</span>
