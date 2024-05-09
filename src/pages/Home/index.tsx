@@ -6,6 +6,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { api } from "../../services/api";
 import { Link } from "react-router-dom";
 
+import grafismo from '../../assets/grafismo.png';
+
 export interface ProductsProps {
   id: number;
   title: string;
@@ -50,12 +52,16 @@ export function Home() {
   }, [])
 
   return (
-    <main className="w-full max-w-7xl mt-6 px-4 mx-auto">
-      <div className="bg-zinc-300 h-40 rounded-md shadow-xl my-10">
-        Confeitaria Kamel
-      </div>
+    <main className="w-full max-w-7xl mt-6 px-4 flex flex-col mx-auto">
+      <section className="flex items-center w-full p-6  rounded-md self-center max-w-lg justify-between m-10 shadow-2xl h-36 bg-secondary">
+        <div className="text-white text-xl font-bold">
+          <h1 className="text-2xl">Confeitaria Kamel</h1>
+          <p className="ml-2">Sua vida mais doce!</p>
+        </div>
+        <img className="w-20" src={grafismo} alt="" />
+      </section>
       <section>
-        <h2 className="text-xl font-semibold">Bolo mini vulcão</h2>
+        <h2 className="text-xl text-center font-semibold">Bolo mini vulcão</h2>
         <Swiper
           modules={[Pagination]}
           slidesPerView={slidesPerView}
