@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { FaWhatsapp } from "react-icons/fa";
 import { CartContext } from "../../context/CartContext";
@@ -12,12 +12,18 @@ export function Cart() {
   const { cart, total, addItemCart, removeItemCart } = useContext(CartContext);
   const [whatsappMessage, setWhatsappMessage] = useState("");
 
-  const handleWhatsAppClick = () => {
-    const message = formatCart(cart, total);
-    setWhatsappMessage(message);
+  useEffect(() => {
+    if (total !== "") {
+      const message = formatCart(cart, total);
+      setWhatsappMessage(message);
+    }
+  }, [total, cart]);
 
-    const whatsappLink = generateWhatsAppLink(whatsappMessage);
-    window.open(whatsappLink, '_blank');
+  const handleWhatsAppClick = () => {
+    if (whatsappMessage !== "") {
+      const whatsappLink = generateWhatsAppLink(whatsappMessage);
+      window.open(whatsappLink, '_blank');
+    }
   };
 
   return (
