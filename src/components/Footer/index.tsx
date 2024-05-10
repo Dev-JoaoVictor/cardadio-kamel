@@ -5,7 +5,7 @@ import { MdOutlineEmail } from "react-icons/md";
 
 export function Footer() {
   return (
-    <footer className="w-full h-20 bg-primary text-white">
+    <footer className="w-full text-primary">
       <div className="w-full max-w-7xl h-20 flex items-center gap-3 px-5 mx-auto">
         <Link to='https://www.instagram.com/confeitariakamel' target="_blank">
           <FaInstagram size={30} />

@@ -35,7 +35,7 @@ export function Details() {
 
   return (
     <main className="w-full">
-      <div className='max-w-7xl px-4 my-8 mx-auto lg:mb-[245px]'>
+      <div className='max-w-7xl px-4 my-10 mx-auto lg:mb-[245px]'>
         <Link to="/" className='flex items-center'>
           <IoIosArrowBack className='mt-1' size={28} />
         </Link>
